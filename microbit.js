@@ -8,15 +8,14 @@ const wetThreshold = 800;
 
 
 basic.forever(() => {
-    // Read moisture level
+  
     let moistureLevel = pins.analogReadPin(moisturePin);
 
-    // Check moisture level
     if (moistureLevel < dryThreshold) {
-        // Soil is dry, activate pump
+     
         pumpWater();
     } else if (moistureLevel > wetThreshold) {
-        // Soil is too wet, stop pump
+     
         stopPump();
     }
 
@@ -27,7 +26,7 @@ basic.forever(() => {
 
 function pumpWater() {
     pins.digitalWritePin(pumpPin, 1); 
-    basic.pause(5000); // Water for 5 seconds (adjust as needed)
+    basic.pause(5000); 
     pins.digitalWritePin(pumpPin, 0); 
 }
 
